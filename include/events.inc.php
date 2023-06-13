@@ -100,7 +100,7 @@ function get_loggedin_desc($desc)
   }
 
   $desc = isset($desc) ? $desc : '';
-  return preg_replace($patterns, $replacements, $desc ?: '');
+  return preg_replace($patterns, $replacements, $desc);
 }
 
 /**
@@ -119,7 +119,7 @@ function get_extended_desc($desc, $param='')
     $param != 'subcatify_category_description'
     and $param != 'main_page_element_description'
     and ( script_basename() != 'picture' or $param != 'main_page_category_description' )
-    and preg_match('#\[redirect (.*?)\]#i', $desc ?: '', $m1)
+    and preg_match('#\[redirect (.*?)\]#i', $desc, $m1)
   )
   {
     if (preg_match('#^(img|cat|search)=(\d*)\.?(\d*|)$#i', $m1[1], $m2))
